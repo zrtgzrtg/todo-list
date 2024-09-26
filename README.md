@@ -1,1 +1,3 @@
-# todo-list
+Check out my todo-list!!
+
+More coming soon!
