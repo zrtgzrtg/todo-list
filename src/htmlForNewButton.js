@@ -31,7 +31,7 @@
                 <label for="notes">Notes</label>
                 <textarea name="notes" id="notes" cols="30" rows="4"></textarea>
               </div>
-              <div><label for="submit">Submit</label><button type="submit" value="Submit"></button></div>
+              <div><label for="submit">Submit</label><button type="submit" value="Submit">Submit</button></div>
             </form>`
 
 const newProjectBtnForm = ` <form action="">
@@ -39,7 +39,7 @@ const newProjectBtnForm = ` <form action="">
             <label for="name">Name</label
             ><input name="name" type="text" required />
             </div>
-           <div><label for="submit">Submit</label><button type="submit" value="Submit"></button></div>
+           <div><label for="submit">Submit</label><button type="submit" value="Submit">Submit</button></div>
           </form>`
 export {newProjectBtnForm, newTodoBtnForm}
 
