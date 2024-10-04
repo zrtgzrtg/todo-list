@@ -1,4 +1,5 @@
 
+import { ListItem } from "./ListItem"
 import { Project } from "./Project"
 
 class StorageHandler {
@@ -16,7 +17,10 @@ class StorageHandler {
     static getProjectByName(projectName) {
         if(this.projectIsPresent(projectName)) {
             let projectJson = localStorage.getItem(projectName)
-            let project =  ItemHandler.getItemFromJson(projectJson)
+            let projectObject =  ItemHandler.getItemFromJson(projectJson)
+            
+            const project = this.getProjectFromProjectObject(projectObject)
+            
             return project
         }
     }
@@ -41,6 +45,14 @@ class StorageHandler {
             return retItem
         })
         return allProjectsArr
+    }
+    static getProjectFromProjectObject(projectObject) {
+        console.log(projectObject)
+        console.log(projectObject.items[0])
+        const listItem = new ListItem(projectObject.items[0].title,projectObject.items[0].description,projectObject.items[0].dueDate,projectObject.items[0].priority,projectObject.items[0].notes)
+        console.log(listItem)
+        const project = new Project(projectObject.name,listItem)
+        return project
     }
     
 

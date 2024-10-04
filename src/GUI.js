@@ -75,6 +75,44 @@ class GUI {
             })
         })
     }
+    static render1Todo(listItem) {
+        const todoContainer = document.querySelector(".todo-container")
+        const remButton = document.createElement("button")
+        const remButtonContainer = document.createElement("div")
+        remButtonContainer.setAttribute("class", "rem-button-container")
+        remButton.setAttribute("class", "rem-button")
+        remButton.textContent = "Delete Todo"
+        remButtonContainer.appendChild(remButton)
+        const itemContainer = document.createElement("div")
+        itemContainer.setAttribute("class","todo-item")
+
+        listItem.getPropArray().forEach(property => {
+            const propertyDiv = document.createElement("div")
+            const [key,value] = Object.entries(property)[0]
+            if(key === "dueDate") {
+                propertyDiv.textContent = "Due: " + value
+
+            } else if(key === "priority") {
+                propertyDiv.textContent = "Priority: " + value
+            } else {
+            propertyDiv.textContent = value
+            }
+            propertyDiv.setAttribute("class",key)
+            itemContainer.appendChild(propertyDiv)
+        })
+        itemContainer.appendChild(remButtonContainer)
+        //need to apply event Listener to remButton
+        todoContainer.appendChild(itemContainer)
+    }
+    static renderAllTodos(currentProjectTitle) {
+        const currentProject = StorageHandler.getProjectByName(currentProjectTitle)
+        console.log(currentProject)
+        const listItemsArr = currentProject.getListItems()
+        listItemsArr.forEach(item=>{
+            this.render1Todo(item)
+        })
+        
+    }
 }
 
 export {GUI}

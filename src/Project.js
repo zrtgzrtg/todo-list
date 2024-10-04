@@ -34,6 +34,9 @@ class Project {
             return false
         }
     }
+    getListItems() {
+        return this.items
+    }
 
 }
 export {Project}

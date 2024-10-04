@@ -3,11 +3,12 @@
     const newTodoBtnForm = ` <form action="">
               <div>
                 <label for="title">Title</label
-                ><input name="title" type="text" id="title" required />
+                ><input maxlength="12" name="title" type="text" id="title" required />
               </div>
               <div>
                 <label for="description">Description</label
                 ><input
+                  maxlength="20"
                   name="description"
                   type="text"
                   id="description"
@@ -29,7 +30,7 @@
               </div>
               <div>
                 <label for="notes">Notes</label>
-                <textarea name="notes" id="notes" cols="30" rows="4"></textarea>
+                <textarea maxlength="80" name="notes" id="notes" cols="30" rows="4"></textarea>
               </div>
               <div><label for="submit">Submit</label><button type="submit" value="Submit">Submit</button></div>
             </form>`

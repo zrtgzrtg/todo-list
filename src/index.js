@@ -9,3 +9,9 @@ import { GUI } from "./GUI";
 
 localStorage.clear()
 GUI.init()
+
+GUI.renderAllTodos("default")
+GUI.renderAllTodos("default")
+GUI.renderAllTodos("default")
+GUI.renderAllTodos("default")
+GUI.renderAllTodos("default")
