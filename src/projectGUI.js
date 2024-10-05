@@ -10,6 +10,7 @@ class projectGui {
         this.allProjectArr.forEach(project => {
             const projectDiv = document.createElement("button")
             projectDiv.textContent = project.name
+            projectDiv.setAttribute("id", project.name)
             containerProjects.appendChild(projectDiv)
         });
     }

@@ -49,10 +49,18 @@ class StorageHandler {
     static getProjectFromProjectObject(projectObject) {
         console.log(projectObject)
         console.log(projectObject.items[0])
-        const listItem = new ListItem(projectObject.items[0].title,projectObject.items[0].description,projectObject.items[0].dueDate,projectObject.items[0].priority,projectObject.items[0].notes)
-        console.log(listItem)
-        const project = new Project(projectObject.name,listItem)
+        const project = new Project(projectObject.name)
+        const listItems = StorageHandler.returnListItemArrayFromProject(projectObject)
+        listItems.forEach(item => project.addItem(item))
         return project
+    }
+    static returnListItemArrayFromProject(projectObject) {
+        let retArray = []
+        for(let i = 0;i<projectObject.items.length;i++) {
+        const listItem = new ListItem(projectObject.items[i].title,projectObject.items[i].description,projectObject.items[i].dueDate,projectObject.items[i].priority,projectObject.items[i].notes)
+        retArray.push(listItem)
+        }
+        return retArray
     }
     
 

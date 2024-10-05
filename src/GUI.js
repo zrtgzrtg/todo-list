@@ -6,19 +6,27 @@ import { StorageHandler } from "./StorageHandler"
 import { projectGui } from "./projectGUI"
 import { ListItem } from "./ListItem"
 import { Project } from "./Project"
+import { ProjectCreator } from "./ProjectCreator"
 class GUI {
     static currentProject 
 
 
     static init() {
-    const exampleItem = new ListItem("title", "this is a description",new Date(),"high","these are some notes")
-    const exampleItem2 = new ListItem("title2", "this is a description",new Date(),"high","these are some notes")
+    const exampleItem = new ListItem("Title", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem1 = new ListItem("Title1", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem2 = new ListItem("Title2", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem3 = new ListItem("Title3", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem4 = new ListItem("Title4", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem5= new ListItem("Title5", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem6= new ListItem("Title6", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem7= new ListItem("Title7", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem8= new ListItem("Title8", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItemArr = [exampleItem, exampleItem1,exampleItem2,exampleItem3,exampleItem4,exampleItem5,exampleItem6,exampleItem7,exampleItem8]
+    const exampleItemProject2 = new ListItem("title2", "this is a description",new Date(),"high","these are some notes")
     
-    let defaultProject = new Project("default",exampleItem)
-    let currentProject2 = new Project("default2",exampleItem2)
+    let defaultProject = ProjectCreator.createProjectInStorage("default",...exampleItemArr)
+    let currentProject2 = ProjectCreator.createProjectInStorage("default2",exampleItemProject2)
 
-    StorageHandler.setProject(defaultProject)
-    StorageHandler.setProject(currentProject2)
     projectGui.displayProject()
     GUI.newButtonListeners()
     this.currentProject = defaultProject
@@ -41,10 +49,12 @@ class GUI {
         const closeButtons = Array.from(document.querySelectorAll(".close-button"))
 
 
+
         GUI.addEventListenerNewBtn(newProjBtn,ProjFormContainer,newProjectBtnForm, modal1,overlay)
         GUI.addEventListenerNewBtn(newTodoBtn,TodoFormContainer,newTodoBtnForm, modal2,overlay)
         GUI.addCloseButtonForm(closeButtons,modalArr,overlay)
         GUI.addSubmitButtonForm(modalArr,closeButtons)
+
         
     }
     static addEventListenerNewBtn(newBtn, newBtnContainer, htmlForm, modal, overlay) {
@@ -89,7 +99,11 @@ class GUI {
         listItem.getPropArray().forEach(property => {
             const propertyDiv = document.createElement("div")
             const [key,value] = Object.entries(property)[0]
-            if(key === "dueDate") {
+            if(key === "title") {
+                remButton.setAttribute("id", value)
+                propertyDiv.textContent = value
+
+            } else if(key === "dueDate") {
                 propertyDiv.textContent = "Due: " + value
 
             } else if(key === "priority") {
@@ -112,6 +126,16 @@ class GUI {
             this.render1Todo(item)
         })
         
+    }
+    static removeAllTodosVisually() {
+        const todoContainer = document.querySelector(".todo-container")
+        while(todoContainer.firstChild) {
+            todoContainer.removeChild(todoContainer.firstChild)
+        }
+    }
+    static clickDefaultProject() {
+        const defaultProjectSelected = document.querySelector("#default")
+        defaultProjectSelected.click()
     }
 }
 

@@ -1,9 +1,11 @@
 
+import { format } from "date-fns"
+
 class ListItem {
     constructor(title,description,dueDate,priority,notes) {
         this.title = title
         this.description = description
-        this.dueDate = dueDate
+        this.dueDate = format(dueDate,"dd-MM-yyyy")
         this.priority = priority
         this.notes = notes
         this.propArray = this.fillPropArry()

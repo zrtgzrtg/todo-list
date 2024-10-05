@@ -14,9 +14,12 @@ class Project {
         if(this.itemPresent(listItem.title)) {
              console.log(`This title already Exists in ${this.name}`)
              return
+        } else if(this.nameSet.size>=8) {
+            console.log(`Max Amount of Notes reached in ${this.name}`)
+            return
         }
         this.items.push(listItem)
-        this.nameSet.add(listItem.name)
+        this.nameSet.add(listItem.title)
     }
     removeItem(listItemTitle) {
         if(!this.itemPresent(listItemTitle)) {

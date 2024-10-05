@@ -6,12 +6,11 @@ import  { ItemCreator } from "./ItemCreator"
 import { Project } from "./Project";
 import { projectGui } from "./projectGUI";
 import { GUI } from "./GUI";
+import { mainListeners } from "./mainListeners";
 
 localStorage.clear()
 GUI.init()
+mainListeners.addProjectListener()
+mainListeners.addDeleteTodoListener()
+GUI.clickDefaultProject()
 
-GUI.renderAllTodos("default")
-GUI.renderAllTodos("default")
-GUI.renderAllTodos("default")
-GUI.renderAllTodos("default")
-GUI.renderAllTodos("default")
