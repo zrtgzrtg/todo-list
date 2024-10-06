@@ -47,8 +47,6 @@ class StorageHandler {
         return allProjectsArr
     }
     static getProjectFromProjectObject(projectObject) {
-        console.log(projectObject)
-        console.log(projectObject.items[0])
         const project = new Project(projectObject.name)
         const listItems = StorageHandler.returnListItemArrayFromProject(projectObject)
         listItems.forEach(item => project.addItem(item))

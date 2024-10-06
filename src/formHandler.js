@@ -1,6 +1,0 @@
-
-class FormHandler {
-
-
-}
-export {FormHandler}

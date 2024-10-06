@@ -6,6 +6,7 @@ class projectGui {
     static allProjectArr = StorageHandler.getAllProjects()
     
     static displayProject() {
+        projectGui.updateAllProjectArr()
         const containerProjects = document.querySelector(".project-container")
         this.allProjectArr.forEach(project => {
             const projectDiv = document.createElement("button")
@@ -14,8 +15,8 @@ class projectGui {
             containerProjects.appendChild(projectDiv)
         });
     }
-    static addListenerProject() {
-
+    static updateAllProjectArr() {
+        this.allProjectArr = StorageHandler.getAllProjects()
     }
 }
 export {projectGui}

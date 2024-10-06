@@ -118,8 +118,8 @@ class GUI {
         //need to apply event Listener to remButton
         todoContainer.appendChild(itemContainer)
     }
-    static renderAllTodos(currentProjectTitle) {
-        const currentProject = StorageHandler.getProjectByName(currentProjectTitle)
+    static renderAllTodos(currentProjectName) {
+        const currentProject = StorageHandler.getProjectByName(currentProjectName)
         console.log(currentProject)
         const listItemsArr = currentProject.getListItems()
         listItemsArr.forEach(item=>{
@@ -137,6 +137,17 @@ class GUI {
         const defaultProjectSelected = document.querySelector("#default")
         defaultProjectSelected.click()
     }
+    static renderAllProjects() {
+        GUI.removeAllProjectsVisually()
+        projectGui.displayProject()
+    }
+    static removeAllProjectsVisually() {
+        const projectContainer = document.querySelector(".project-container")
+        while(projectContainer.firstChild) {
+            projectContainer.removeChild(projectContainer.firstChild)
+        }
+    }
+    
 }
 
 export {GUI}

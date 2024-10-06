@@ -1,6 +1,6 @@
 
 
-    const newTodoBtnForm = ` <form action="">
+    const newTodoBtnForm = ` <form action="" id="todo-form">
               <div>
                 <label for="title">Title</label
                 ><input maxlength="12" name="title" type="text" id="title" required />
@@ -35,7 +35,7 @@
               <div><label for="submit">Submit</label><button type="submit" value="Submit">Submit</button></div>
             </form>`
 
-const newProjectBtnForm = ` <form action="">
+const newProjectBtnForm = ` <form action="" id="project-form">
             <div>
             <label for="name">Name</label
             ><input name="name" type="text" required />

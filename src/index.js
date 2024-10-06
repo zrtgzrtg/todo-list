@@ -13,4 +13,5 @@ GUI.init()
 mainListeners.addProjectListener()
 mainListeners.addDeleteTodoListener()
 GUI.clickDefaultProject()
+mainListeners.addListenerForms()
 
