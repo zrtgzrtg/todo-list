@@ -17,8 +17,13 @@ class mainListeners {
                 return
             }
             mainListeners.renderProjectByClick(event.target.textContent)
+            currentProjectDiv.textContent = `${event.target.id}`
+
+
+            
             this.currentProject = event.target.id
-            currentProjectDiv.textContent = `Current Project: ${event.target.id}`
+            
+
         })
 
     }
@@ -58,6 +63,24 @@ class mainListeners {
             }
             
             })
+    }
+    static addRemoveProjectListener() {
+        const removeProjectButton = document.querySelector(".delete-project")
+
+        removeProjectButton.addEventListener("click", event => {
+            console.log("outer run")
+            if(event.target.classList.contains("delete-project")){
+                if(this.currentProject === "default") {
+                    console.log("Cant delete default!!!")
+                    return
+                }
+                console.log("run")
+                ProjectCreator.deleteProject(this.currentProject)
+                GUI.renderAllProjects()
+                GUI.clickDefaultProject()
+            }
+        })
+
     }
     
 }

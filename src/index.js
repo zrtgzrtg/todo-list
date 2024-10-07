@@ -8,10 +8,10 @@ import { projectGui } from "./projectGUI";
 import { GUI } from "./GUI";
 import { mainListeners } from "./mainListeners";
 
-localStorage.clear()
 GUI.init()
 mainListeners.addProjectListener()
 mainListeners.addDeleteTodoListener()
 GUI.clickDefaultProject()
 mainListeners.addListenerForms()
+mainListeners.addRemoveProjectListener()
 

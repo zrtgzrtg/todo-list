@@ -8,28 +8,28 @@ import { ListItem } from "./ListItem"
 import { Project } from "./Project"
 import { ProjectCreator } from "./ProjectCreator"
 class GUI {
-    static currentProject 
 
 
     static init() {
-    const exampleItem = new ListItem("Title", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem1 = new ListItem("Title1", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem2 = new ListItem("Title2", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem3 = new ListItem("Title3", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem4 = new ListItem("Title4", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem5= new ListItem("Title5", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem6= new ListItem("Title6", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem7= new ListItem("Title7", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    const exampleItem8= new ListItem("Title8", "this is a description",new Date(),"high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem = new ListItem("Title", "this is a description",  "2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem1 = new ListItem("Title1", "this is a description","2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem2 = new ListItem("Title2", "this is a description","2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem3 = new ListItem("Title3", "this is a description","2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem4 = new ListItem("Title4", "this is a description","2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem5= new ListItem("Title5", "this is a description" ,"2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem6= new ListItem("Title6", "this is a description" ,"2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem7= new ListItem("Title7", "this is a description" ,"2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    const exampleItem8= new ListItem("Title8", "this is a description" ,"2020-12-14","high","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     const exampleItemArr = [exampleItem, exampleItem1,exampleItem2,exampleItem3,exampleItem4,exampleItem5,exampleItem6,exampleItem7,exampleItem8]
-    const exampleItemProject2 = new ListItem("title2", "this is a description",new Date(),"high","these are some notes")
     
-    let defaultProject = ProjectCreator.createProjectInStorage("default",...exampleItemArr)
-    let currentProject2 = ProjectCreator.createProjectInStorage("default2",exampleItemProject2)
+    if(!ProjectCreator.isProjectPresent("default")) {
+        let defaultProject = ProjectCreator.createProjectInStorage("default")
+    } else {
+        let defaultProject = document.querySelector("#default")
+    }
 
     projectGui.displayProject()
     GUI.newButtonListeners()
-    this.currentProject = defaultProject
     }
 
     static newButtonListeners() {

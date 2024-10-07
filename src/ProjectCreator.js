@@ -1,4 +1,5 @@
 
+import { GUI } from "./GUI";
 import { Project } from "./Project";
 import { StorageHandler } from "./StorageHandler";
 
@@ -16,6 +17,13 @@ class ProjectCreator {
         project.items.splice(listItemIndex,1)
         StorageHandler.delProject(projectName)
         StorageHandler.setProject(project)
+    }
+    static deleteProject(projectName) {
+        StorageHandler.delProject(projectName)
+        
+    }
+    static isProjectPresent(projectName) {
+        return StorageHandler.projectIsPresent(projectName)
     }
 }
 export {ProjectCreator}

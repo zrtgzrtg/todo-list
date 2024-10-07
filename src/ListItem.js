@@ -1,11 +1,14 @@
 
-import { format } from "date-fns"
+import { format, parse, parseISO } from "date-fns"
 
 class ListItem {
     constructor(title,description,dueDate,priority,notes) {
         this.title = title
         this.description = description
-        this.dueDate = format(dueDate,"dd-MM-yyyy")
+        console.log(dueDate)
+        const parsedDate = parseISO(dueDate)
+        console.log(parsedDate)
+        this.dueDate =  format(parsedDate,"yyyy-MM-dd")
         this.priority = priority
         this.notes = notes
         this.propArray = this.fillPropArry()
