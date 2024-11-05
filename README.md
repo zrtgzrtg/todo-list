@@ -1,3 +1,6 @@
-Check out my todo-list!!
+Todo-List in Onedark style
 
-More coming soon!
+Created with only HTML/CSS/JS
+The date is stored using the Localstorage API provided by the browser.
+
+Dependencies include loaders for HTML/CSS and PNGS for Webpack and date-fns for formatting.
